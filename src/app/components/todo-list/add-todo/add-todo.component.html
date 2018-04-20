@@ -1,0 +1,7 @@
+<form class="p-4" #form="ngForm">
+  <div class="form-group">
+    <label for="text">Text</label>
+    <input class="form-control" id="text" name="text" [(ngModel)]="text" required>
+  </div>
+  <button class="btn btn-success" [disabled]="form.invalid" (click)="addTodo(); form.reset()">Add</button>
+</form>

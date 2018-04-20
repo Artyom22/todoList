@@ -1,0 +1,7 @@
+.done {
+  cursor: pointer;
+  color: #ccc;
+}
+.active {
+  color: #28cc23;
+}
