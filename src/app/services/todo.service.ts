@@ -51,6 +51,11 @@ export class TodoService {
     this.sendList(this.todo);
   }
 
+  editTodo(data: Todo, i: number): void {
+    this.todo[i] = data;
+    this.sendList(this.todo);
+  }
+
   check(i: number): void {
     this.todo[i].done = !this.todo[i].done;
     this.sendList(this.todo);

@@ -11,7 +11,6 @@ import { AddTodoComponent } from './components/todo-list/add-todo/add-todo.compo
 
 // Services
 import { TodoService } from './services/todo.service';
-import { EditTodoComponent } from './components/todo-list/edit-todo/edit-todo.component';
 
 // Directives
 import { DraggableDirective } from './directives/draggable.directive';
@@ -22,7 +21,6 @@ import { DragDropZoneDirective } from './directives/drag-drop-zone.directive';
     AppComponent,
     TodoListComponent,
     AddTodoComponent,
-    EditTodoComponent,
     DraggableDirective,
     DragDropZoneDirective
   ],

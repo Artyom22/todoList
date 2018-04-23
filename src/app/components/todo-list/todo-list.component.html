@@ -1,9 +1,17 @@
 <div class="d-flex justify-content-start flex-column p-5" *ngIf="todoList" appDragDropZone>
   <div *ngFor="let item of todoList; let i = index" class="d-flex justify-content-start align-items-center flex-row border" [id]="i" [appDraggable]="i">
     <span class="p-2 text-center w-25">{{ i + 1 }}</span>
-    <span class="p-2 text-center w-25">{{ item.text }}</span>
+    <input type="text" *ngIf="edit == i" [(ngModel)]="text" name="text" class="form-control w-25">
+    <span class="p-2 text-center w-25" *ngIf="edit != i">{{ item.text }}</span>
     <span class="p-2 text-center w-25"><i class="fa fa-check-square done" (click)="check(i)" [ngClass]="{ active: item.done}"></i></span>
-    <button class="btn btn-danger m-2 w-25" (click)="removeTodo(i)">Remove</button>
+    <div *ngIf="edit != i" class="m-2 w-25">
+      <button class="btn btn-warning" (click)="editTodo(i)">Edit</button>
+      <button class="btn btn-danger" (click)="removeTodo(i)">Remove</button>
+    </div>
+    <div *ngIf="edit == i" class="m-2 w-25">
+      <button class="btn btn-success" (click)="submitEditedTodo(i, item.done)">Done</button>
+      <button class="btn btn-default border" (click)="cancelEdit(i)">Cancel</button>
+    </div>
   </div>
 </div>
 <app-add-todo></app-add-todo>

@@ -10,6 +10,8 @@ import { Todo } from '../../models/todo';
 export class TodoListComponent implements OnInit {
 
   todoList: Todo[];
+  text: string;
+  edit: number | null;
 
   constructor(private todoService: TodoService) { }
 
@@ -25,6 +27,25 @@ export class TodoListComponent implements OnInit {
 
   check(i: number): void {
     this.todoService.check(i);
+  }
+
+  editTodo(i: number): void {
+    this.edit = i;
+  }
+
+  cancelEdit(): void {
+    this.edit = null;
+  }
+
+  submitEditedTodo(i: number, done: boolean): void {
+    this.edit = null;
+
+    const data = {
+      text: this.text,
+      done: done,
+    };
+
+    this.todoService.editTodo(data, i);
   }
 
 }
